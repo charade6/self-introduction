@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자소서 글자수 계산기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <style>
+        h1 {
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        #counter {
+            float: right;
+        }
+        .formfield{
+            margin-left: 20px;
+            width: 750px;
+        }
+    </style>
+</head>
+<body class="container">
+    <h1>자기소개서</h1>
+    <div class="formfield">
+        <textarea onkeydown="counter()" id="jasoseo" class="form-control" rows="3" >안녕하세요</textarea>
+        <span id="counter">(0/200)</span>
+    </div>
+    <script>
+        function counter() {
+        var content = document.getElementById("jasoseo").value; // 폼값
+            if(content.length > 200) {
+                content = content.substring(0,200);
+                document.getElementById('jasoseo').value = content;
+            }
+            document.getElementById("counter").innerHTML = '(' + content.length + '/200)';  // 태그 안에 들어있는 값
+            
+        }
+        counter();
+        
+    </script>
+</body>
+</html>
